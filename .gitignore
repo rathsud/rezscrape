@@ -1,0 +1,9 @@
+# Copyright Sudhanshu Rath, 2018
+# All rights reserved.
+
+*.pyc
+*~
+~*
+*#
+\#*
+Res*
