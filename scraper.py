@@ -13,15 +13,21 @@ except ImportError as ie:
     print('ErrorImportingModules')
 try:
     from ResConfig import usr, pwd, sec, clid, \
-        postUrl, listOfLinks as links, debugFlag as DEBUG
+        postUrl, debugFlag as DEBUG
 except ImportError as configError:
     print('UnableToImportConfig')
+try:
+    from LinkList import links
+except ImportError as importLinkError:
+    print('UnableToGetLinks')
 
 def connectToReddit():
     global CONN
-    CONN = praw.Reddit(user_agent='RezScrape', \
-                           client_id=clid, client_secret=sec, \
-                           username=usr, password=pwd)
+    CONN = praw.Reddit(user_agent = 'RezScrape', \
+                       client_id = clid, \
+                       client_secret = sec, \
+                       username=usr, \
+                       password=pwd)
 
 def getTopComments(url):
     top = []
