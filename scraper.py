@@ -13,7 +13,7 @@ except ImportError as ie:
     print('ErrorImportingModules')
 try:
     from ResConfig import usr, pwd, sec, clid, \
-        postUrl, debugFlag as DEBUG
+        postUrl, listOfLinks as links, debugFlag as DEBUG
 except ImportError as configError:
     print('UnableToImportConfig')
 
@@ -55,9 +55,8 @@ if __name__=='__main__':
         print('sec: ' + sec)
         print('app: ' + clid)
 
-    link = 'https://www.reddit.com/r/cscareerquestions/comments/8eijwl/resume_advice_thread_april_24_2018/?st=jhbh4jk2&sh=18f6ba08'
     connectToReddit()
-    resumes = filter(getTopComments(link))
+    resumes = filter(getTopComments(links))
     print(resumes)
 
 '''    unableToPost = []
